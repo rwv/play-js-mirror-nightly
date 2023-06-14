@@ -1,0 +1,11 @@
+{
+  "name": "play-js-mirror-nightly",
+  "version": "1.0.0",
+  "description": "A nightly mirror of jpd002/Play- JavaScript Version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
