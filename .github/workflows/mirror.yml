@@ -29,4 +29,6 @@ jobs:
         run: jq --arg currentDate "$(date +%Y.%m.%d)" '.version = $currentDate' package.json > temp.json && mv temp.json package.json
 
       - name: Publish
-        run: npm publish --dry-run
+        run: npm publish
+        env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
