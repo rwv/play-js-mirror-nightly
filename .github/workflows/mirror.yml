@@ -26,7 +26,7 @@ jobs:
             wget https://playjs.purei.org/Play.wasm -O dist/Play.wasm
 
       - name: Update package.json version
-        run: jq --arg currentDate "$(date +%Y-%m-%d)" '.version = $currentDate' package.json > temp.json && mv temp.json package.json
+        run: jq --arg currentDate "$(date +%Y.%m.%d)" '.version = $currentDate' package.json > temp.json && mv temp.json package.json
 
       - name: Publish
         run: npm publish --dry-run
