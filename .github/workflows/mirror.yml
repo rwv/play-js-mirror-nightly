@@ -1,0 +1,31 @@
+name: Check and Mirror
+
+on:
+  schedule:
+    # ruffle's nightly building is at 0 0 * * *
+    - cron:  '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node env
+        uses: actions/setup-node@v2
+        with:
+          registry-url: https://registry.npmjs.org
+
+      - name: Download Files
+        run: |
+            wget https://playjs.purei.org/Play.js -O dist/Play.js
+            wget https://playjs.purei.org/Play.worker.js -O dist/Play.worker.js
+            wget https://playjs.purei.org/Play.wasm -O dist/Play.wasm
+
+      - name: Update package.json version
+        run: jq --arg currentDate "$(date +%Y-%m-%d)" '.version = $currentDate' package.json > temp.json && mv temp.json package.json
+
+      - name: Publish
+        run: npm publish --dry-run
