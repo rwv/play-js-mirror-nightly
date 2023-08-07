@@ -32,7 +32,7 @@ jobs:
         run: terser dist/Play.js -c -m -o dist/Play.min.js
 
       - name: Update package.json version
-        run: jq --arg currentDate "$(date +%Y.%m.%d)" '.version = $currentDate' package.json > temp.json && mv temp.json package.json
+        run: jq --arg currentDate "$(date +%Y.%-m.%-d)" '.version = $currentDate' package.json > temp.json && mv temp.json package.json
 
       - name: Run sri.py
         run: python3 sri.py
