@@ -24,7 +24,6 @@ jobs:
         run: |
             mkdir -p dist
             wget https://playjs.purei.org/Play.js -O dist/Play.js
-            wget https://playjs.purei.org/Play.worker.js -O dist/Play.worker.js
             wget https://playjs.purei.org/Play.wasm -O dist/Play.wasm
 
       - name: Minify
