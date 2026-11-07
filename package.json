@@ -1,12 +1,10 @@
 {
   "name": "play-js-mirror-nightly",
-  "version": "1.0.0",
+  "version": "2026.10.26",
   "description": "A nightly mirror of jpd002/Play- JavaScript Version",
   "main": "dist/Play.js",
   "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "files": ["dist", "License.txt"],
   "author": "",
-  "license": "ISC"
+  "license": "BSD-2-Clause"
 }
